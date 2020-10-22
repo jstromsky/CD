@@ -16,4 +16,5 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.CD_PAT }}
+          repository: jstromsky/TEST
           event-type: my-event
