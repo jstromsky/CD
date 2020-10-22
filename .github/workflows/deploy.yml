@@ -1,0 +1,19 @@
+name: Dispatch event
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  update-submodule-job:
+    name: dispatch event
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.CD_PAT }}
+          event-type: my-event
